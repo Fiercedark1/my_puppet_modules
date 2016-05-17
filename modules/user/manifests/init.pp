@@ -1,6 +1,6 @@
 #Class: user
 #
-#This module manages the installation and configuration of nginx
+#This module manages the installation and configuration of users
 #
 #Author: Edwin Carrasquillo
 #
@@ -10,5 +10,10 @@
 #
 # 
 class user {
-
+  user { 'k':
+    ensure     => present,
+    comment    => 'team user',
+    home       => '/home/k',
+    managehome => true
+  }
 }
