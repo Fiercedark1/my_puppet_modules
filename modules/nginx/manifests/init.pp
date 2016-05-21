@@ -13,7 +13,7 @@
 # 
 class nginx {
   package { 'nginx':
-    ensure    => installed,
+    ensure    => present,
     owner     => 'root',
     group     => 'root',
     mode      => '0644",
@@ -31,7 +31,7 @@ class nginx {
     subscribe => File['default.conf'],
 }
 
-  file { 'default.conf':
+  file { '/etc/nginx/conf.d/default.conf':
     path      => '/etc/nginx/conf.d/default.conf',
     require   => Package['nginx'],
     source    => "puppet:///modules/nginx/default.conf"
